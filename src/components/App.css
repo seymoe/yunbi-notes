@@ -1,0 +1,75 @@
+.App{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px rgba(255,255,255,.1);
+  padding: 5px;
+}
+
+.head-wrap{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom:1px solid #f4efea;
+}
+.logo{
+  color: #8e857e;
+}
+
+main{
+  position: absolute;
+  top: 55px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  overflow: hidden;
+}
+
+.left-box{
+  float: left;
+  width: 20%;
+  height: 100%;
+  overflow-y: auto;
+}
+.left-box>h1{
+  margin-bottom: 10px;
+  text-indent: 15px;
+}
+.right-box{
+  float: right;
+  width: 78%;
+  height: 100%;
+  overflow-y: auto;
+}
+.list-wrap{
+  list-style: none;
+}
+.list-wrap li{
+  text-indent: 15px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+}
+.list-wrap li:hover{
+  background-color: #f4efea;
+  color: #47423f;
+}
+.list-wrap li.active{
+  background-color: #f4efea;
+  color: #47423f;
+}
+
+.preview-wrap h1{
+  margin-bottom: 10px;
+  color: #47423f;
+}
+.preview-wrap p{
+  line-height: 1.5;
+  color: #8e857e;
+}
