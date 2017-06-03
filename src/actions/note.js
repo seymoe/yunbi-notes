@@ -1,9 +1,9 @@
-import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE} from '../constants'
+import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER } from '../constants'
 
 let noteId = 0
 
 // 增加一篇笔记
-export const addNote = (id, title, content) => {
+export const addNote = ( title, content) => {
   return {
     type: ADD_NOTE,
     id: noteId++,
@@ -35,5 +35,13 @@ export const saveNote = (id, title, content) => {
     id,
     title,
     content
+  }
+}
+
+// 显示浮出层
+export const showLayer = (isShowLayer) => {
+  return {
+    type: SHOW_LAYER,
+    isShowLayer
   }
 }

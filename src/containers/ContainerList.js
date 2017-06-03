@@ -1,14 +1,18 @@
 import { connect } from 'react-redux'
 import List from '../components/List'
-import { showNote } from '../actions/note'
+import { showNote, showLayer } from '../actions/note'
 
 const mapStateToProps = (state, ownProps) => ({
-  listData: state.notes
+  listData: state.notes,
+  isShowLayer: state.isShowLayer
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: (id) =>{
+  onClick: (id) => {
     dispatch(showNote(id))
+  },
+  addBtnClick: (isSL) => {
+    dispatch(showLayer(isSL))
   }
 })
 

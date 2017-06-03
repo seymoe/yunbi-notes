@@ -1,75 +1,230 @@
-.App{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 1px 1px rgba(255,255,255,.1);
-  padding: 5px;
+.App {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
 }
 
-.head-wrap{
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  border-bottom:1px solid #f4efea;
-}
-.logo{
-  color: #8e857e;
+.head-wrap {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #24292e;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
 }
 
-main{
-  position: absolute;
-  top: 55px;
-  bottom: 5px;
-  left: 5px;
-  right: 5px;
-  overflow: hidden;
+.logo {
+    float: left;
+    margin-left: 15px;
+    font-weight: normal;
+    font-size: 20px;
+    color: #fff;
 }
 
-.left-box{
+main {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.left-box {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+.left-box>h1 {
+    margin: 10px 0;
+    text-indent: 15px;
+    font-size: 16px;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+}
+.left-box>h1 i{
+    margin-right: 5px;
+}
+
+.left-box>.add-new {
+    position: absolute;
+    display: block;
+    width: 30px;
+    right: 0;
+    top: 10px;
+    text-align: center;
+    line-height: 30px;
+    color: #47423f;
+    cursor: pointer;
+}
+.left-box>.add-new:hover{
+    background-color: #8e857e;
+    color: #fff;
+}
+
+.right-box {
+    float: right;
+    width: 79%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.list-wrap {
+    list-style: none;
+}
+
+.list-wrap li {
+    text-indent: 15px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+}
+.list-wrap li i{
+    margin-right: 8px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    font-size: 14px;
+    color: #8e857e;
+}
+
+.list-wrap li:hover {
+    background-color: #fff;
+    color: #47423f;
+}
+
+.list-wrap li.active {
+    background-color: #fff;
+    color: #47423f;
+}
+
+.preview-wrap{
+    padding: 10px;
+}
+
+.preview-wrap h1 {
+    margin-bottom: 10px;
+    color: #47423f;
+}
+.preview-wrap p {
+    line-height: 1.5;
+    color: #8e857e;
+}
+
+
+/* 悬浮层样式 */
+
+.layer-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+}
+
+.layer-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    z-index: 100;
+}
+.layer-left{
+  position: relative;
+  width: 49.5%;
+  height: 100%;
   float: left;
-  width: 20%;
+}
+.layer-left:after{
+  position: absolute;
+   content: '';
+   display: block;
+   height: 100%;
+   width: 1px;
+   right: -7px;
+   top: 0;
+   background-color: #cecdcc;
+}
+.layer-right{
+  width: 49.5%;
   height: 100%;
-  overflow-y: auto;
-}
-.left-box>h1{
-  margin-bottom: 10px;
-  text-indent: 15px;
-}
-.right-box{
   float: right;
-  width: 78%;
-  height: 100%;
-  overflow-y: auto;
-}
-.list-wrap{
-  list-style: none;
-}
-.list-wrap li{
-  text-indent: 15px;
-  height: 30px;
-  line-height: 30px;
-  border-bottom: 1px solid #f1f1f1;
-  cursor: pointer;
-}
-.list-wrap li:hover{
-  background-color: #f4efea;
-  color: #47423f;
-}
-.list-wrap li.active{
-  background-color: #f4efea;
-  color: #47423f;
 }
 
-.preview-wrap h1{
+.layer-left>h3,.layer-right>h3{
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #f4efea;
   margin-bottom: 10px;
-  color: #47423f;
 }
-.preview-wrap p{
+.icon-save,.icon-close{
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    text-align: center;
+    z-index: 101;
+    cursor: pointer;
+}
+.icon-save{
+    right: 50px;
+}
+.icon-close{
+    right: 10px;
+}
+.icon-save:hover,.icon-close:hover{
+    background-color: #8e857e;
+    color: #fff;
+}
+
+.input-box{
+  margin-bottom: 10px;
+  height: 35px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.input-box input{
+  display: block;
+  width: 100%;
+  height: inherit;
+  line-height: 35px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.textarea-box{
+  width: 100%;
+}
+.textarea-box textarea{
+  width: 100%;
+  height: 825px;
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: 16px;
   line-height: 1.5;
-  color: #8e857e;
+}
+
+.layer-preview{
+  line-height: 1.6;
+}
+
+.icon-close{
+
 }

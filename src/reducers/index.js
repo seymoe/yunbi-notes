@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE} from '../constants'
+import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER } from '../constants'
 
 const initialState = {
   notes: [
@@ -15,7 +15,8 @@ const initialState = {
       isActive: false
     }
   ],
-  cnote: {}
+  cnote: {},
+  isShowLayer: false
 }
 
 const note = (state={}, action) => {
@@ -32,6 +33,7 @@ const note = (state={}, action) => {
         id: action.id,
         title: action.title,
         content: action.content
+        
       })
     default:
       return state
@@ -61,11 +63,11 @@ const noteApp = (state=initialState, action) => {
         if (item.id === action.id) {
           item.isActive = true
         } else {
-          item.isActive = false          
+          item.isActive = false
         }
         return item
       })
-      console.log(_notes)
+
       return Object.assign({}, state, {
         notes: _notes,
         cnote: state.notes.filter(item => item.id === action.id)[0]
@@ -75,6 +77,10 @@ const noteApp = (state=initialState, action) => {
     case SAVE_NOTE:
       return Object.assign({}, state, {
         notes: notes(state.notes, action)
+      })
+    case SHOW_LAYER:
+      return Object.assign({}, state, {
+        isShowLayer: action.isShowLayer
       })
     default:
       return state
