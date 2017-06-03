@@ -42,12 +42,13 @@ main {
 }
 
 .left-box>h1 {
-    margin: 10px 0;
+    padding: 10px 0;
     text-indent: 15px;
     font-size: 16px;
     font-weight: normal;
     height: 30px;
     line-height: 30px;
+    background-color: rgba(36, 41, 46, 0.1);
 }
 .left-box>h1 i{
     margin-right: 5px;

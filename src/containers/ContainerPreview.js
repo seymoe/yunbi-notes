@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Preview from '../components/Preview'
-import { showNote } from '../actions/note'
+// import { showNote } from '../actions/note'
 
 const mapStateToProps = (state, ownProps) => ({
   currentNote: state.cnote
