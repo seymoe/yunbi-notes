@@ -58,7 +58,7 @@ main {
     position: absolute;
     display: block;
     width: 30px;
-    right: 0;
+    right: 10px;
     top: 10px;
     text-align: center;
     line-height: 30px;
@@ -71,7 +71,8 @@ main {
 }
 
 .right-box {
-    float: right;
+    position: relative;
+    float: left;
     width: 79%;
     height: 100%;
     overflow-y: auto;
@@ -82,17 +83,31 @@ main {
 }
 
 .list-wrap li {
-    text-indent: 15px;
-    height: 30px;
-    line-height: 30px;
+    display: flex;
+    justify-content: space-around;
+    height: 35px;
+    line-height: 35px;
     border-bottom: 1px solid #f1f1f1;
     cursor: pointer;
+}
+.list-wrap li .listid{
+    display: block;
+    padding: 0 5px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.list-wrap li .listtitle{
+    flex: 1;
+    text-indent: 10px;
 }
 .list-wrap li i{
     margin-right: 8px;
     display: block;
-    height: 30px;
-    line-height: 30px;
+    height: 35px;
+    line-height: 35px;
     float: right;
     font-size: 14px;
     color: #8e857e;
@@ -145,25 +160,19 @@ main {
     border-radius: 5px;
     z-index: 100;
 }
+.layer-left,.layer-right{
+    padding: 5px;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;    
+}
 .layer-left{
-  position: relative;
-  width: 49.5%;
-  height: 100%;
   float: left;
+  border-right: 1px solid rgba(0,0,0,0.1);
 }
-.layer-left:after{
-  position: absolute;
-   content: '';
-   display: block;
-   height: 100%;
-   width: 1px;
-   right: -7px;
-   top: 0;
-   background-color: #cecdcc;
-}
+
 .layer-right{
-  width: 49.5%;
-  height: 100%;
   float: right;
 }
 
@@ -197,24 +206,28 @@ main {
 
 .input-box{
   margin-bottom: 10px;
-  height: 35px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  height: 50px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .input-box input{
   display: block;
   width: 100%;
   height: inherit;
-  line-height: 35px;
+  line-height: 50px;
   border: none;
   outline: none;
   font-size: 16px;
 }
 .textarea-box{
-  width: 100%;
+  position: absolute;
+  top: 107px;
+  left: 5px;
+  right: 5px;
+  bottom: 0;
 }
 .textarea-box textarea{
   width: 100%;
-  height: 825px;
+  height: 100%;
   border: none;
   resize: none;
   outline: none;
@@ -228,4 +241,73 @@ main {
 
 .icon-close{
 
+}
+
+@media screen and (max-width: 480px) {
+    .head-wrap{
+        height: 50px;
+        line-height: 50px;
+    }
+    .logo{
+        float: none;
+        text-align: center;
+        margin-left: 0;
+    }
+    main{
+        top: 50px;
+    }
+    .left-box{
+        float: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        /*left: calc( -100% + 50px);*/
+        z-index: 2;
+        transition: left .5s;        
+    }
+    .list-wrap li .listid{
+        float: right;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 0;
+        width: 50px;
+        padding: 0;
+        margin: 0;
+    }
+    /*.listtitle,.list-wrap li i{
+        display: none;
+    }*/
+    .right-box{
+        float: none;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 100%;
+        top: -100%;
+        transition: left .5s;        
+    }
+    .layer-left{
+        float: none;
+        width: 100%;
+        border-right: none;
+    }
+    .layer-right{
+        display: none;
+    }
+
+    /* 滑动动画 */
+    .left-box.toLeft{
+        left: -100%;
+    }
+    .left-box.toRight{
+        left: 0;
+    }
+    .right-box.toLeft{
+        left: 0;
+        top: 0;
+    }
+    .right-box.toRight{
+        left: 100%;
+    }
 }

@@ -9,7 +9,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: (id) => {
+    console.log(id)
     dispatch(showNote(id))
+    console.log(ownProps)
   },
   addBtnClick: (isSL) => {
     dispatch(showLayer(isSL))
