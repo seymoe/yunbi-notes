@@ -6,7 +6,6 @@ const ListItem = ({ id, title, clickPreview, changeStatusShow, showNoteDetail, c
       clickPreview(id)
       changeStatusShow(!showNoteDetail)
     }}>
-      <span className="listid">{id+1}</span>
       <p className="listtitle">{title}</p>
       <i className="iconfont">&#xe65f;</i>
     </li>

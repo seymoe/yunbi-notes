@@ -73,7 +73,7 @@ main {
 .right-box {
     position: relative;
     float: left;
-    width: 79%;
+    width: 80%;
     height: 100%;
     overflow-y: auto;
 }
@@ -89,15 +89,6 @@ main {
     line-height: 35px;
     border-bottom: 1px solid #f1f1f1;
     cursor: pointer;
-}
-.list-wrap li .listid{
-    display: block;
-    padding: 0 5px;
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    margin-top: 5px;
-    margin-left: 5px;
 }
 .list-wrap li .listtitle{
     flex: 1;
@@ -121,6 +112,53 @@ main {
 .list-wrap li.active {
     background-color: #fff;
     color: #47423f;
+}
+
+/* 右边的预览区域样式*/
+.preview-top{
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+    background-color: rgba(36, 41, 46, 0.1);
+}
+.preview-top>i{
+    display: none;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 100%;
+}
+.preview-top>i:active{
+    background-color: #24292e;
+    color: #fff;
+}
+
+a.modify-btn,a.delete-btn{
+    display: inline-block;
+    padding: 0 7px;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: #ddd;
+    cursor: pointer;
+}
+a.delete-btn{
+    margin-right: 20px;
+}
+
+a.modify-btn:hover,a.modify-btn:active{
+    background-color: #24292e;
+    color: #fff;
+}
+
+a.delete-btn:hover,a.delete-btn:active{
+    background-color: red;
+    color: #fff;
 }
 
 .preview-wrap{
@@ -239,10 +277,6 @@ main {
   line-height: 1.6;
 }
 
-.icon-close{
-
-}
-
 @media screen and (max-width: 480px) {
     .head-wrap{
         height: 50px;
@@ -262,9 +296,14 @@ main {
         top: 0;
         bottom: 0;
         width: 100%;
-        /*left: calc( -100% + 50px);*/
         z-index: 2;
         transition: left .5s;        
+    }
+    .left-box h1{
+        padding: 5px 0;
+    }
+    .left-box>.add-new{
+        top: 5px;
     }
     .list-wrap li .listid{
         float: right;
@@ -275,9 +314,6 @@ main {
         padding: 0;
         margin: 0;
     }
-    /*.listtitle,.list-wrap li i{
-        display: none;
-    }*/
     .right-box{
         float: none;
         position: absolute;
@@ -285,8 +321,21 @@ main {
         width: 100%;
         left: 100%;
         top: -100%;
-        transition: left .5s;        
+        transition: left .5s;
     }
+
+    /* 右边预览区域*/
+    .preview-top{
+        height: 40px;
+        line-height: 40px;
+    }
+    .preview-top>i{
+        display: block;
+    }
+    a.delete-btn{
+        margin-right: 5px;
+    }
+
     .layer-left{
         float: none;
         width: 100%;
@@ -294,6 +343,15 @@ main {
     }
     .layer-right{
         display: none;
+    }
+    .input-box{
+        height: 40px;
+    }
+    .input-box input{
+        line-height: 40px;
+    }
+    .textarea-box{
+        top: 97px;
     }
 
     /* 滑动动画 */

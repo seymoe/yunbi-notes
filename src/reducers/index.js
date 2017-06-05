@@ -59,8 +59,12 @@ const noteApp = (state=initialState, action) => {
         notes: _notes,
         cnote: state.notes.filter(item => item.id === action.id)[0]
       })
+      // 删除列表
     case DELETE_NOTE:
-      return state.map(item => item.id !== action.id)
+      let newnotes = state.notes.filter(item => item.id !== action.id)
+      return Object.assign({}, state, {
+        notes: newnotes
+      })
     case SAVE_NOTE:
       return Object.assign({}, state, {
         notes: notes(state.notes, action)
