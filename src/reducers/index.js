@@ -1,9 +1,10 @@
-import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER } from '../constants'
+import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER, SHOW_EDITER } from '../constants'
 
 const initialState = {
   notes: [],
   cnote: {},
-  isShowLayer: false
+  isShowLayer: false,
+  idShowEditer: false
 }
 
 const note = (state={}, action) => {
@@ -30,7 +31,22 @@ const note = (state={}, action) => {
 const notes = (state=[], action) => {
   switch(action.type) {
     case ADD_NOTE:
-      return [...state, note({}, action)]
+      let isNew = true
+      const _arr = state.map((item) => {
+        if (item.id === action.id) {
+          isNew = false
+          item.title = action.title
+          item.content = action.content
+        }
+        return item
+      })
+      console.log('编辑之后的所有列表：'+_arr)
+
+      if (isNew) {
+        return [...state, note({}, action)]        
+      } else {
+        return _arr
+      }
     case SAVE_NOTE:
       return [...state, note({}, action)]
     default:
@@ -63,7 +79,8 @@ const noteApp = (state=initialState, action) => {
     case DELETE_NOTE:
       let newnotes = state.notes.filter(item => item.id !== action.id)
       return Object.assign({}, state, {
-        notes: newnotes
+        notes: newnotes,
+        cnote: {}
       })
     case SAVE_NOTE:
       return Object.assign({}, state, {
@@ -72,6 +89,10 @@ const noteApp = (state=initialState, action) => {
     case SHOW_LAYER:
       return Object.assign({}, state, {
         isShowLayer: action.isShowLayer
+      })
+    case SHOW_EDITER:
+      return Object.assign({}, state, {
+        isShowEditer: action.isShowEditer
       })
     default:
       return state

@@ -1,21 +1,23 @@
 import React from 'react'
 const marked = require('marked')
 
-class Layer extends React.Component {
+class Edit extends React.Component {
   constructor(props) {
     super(props)
+    const _t = this.props.title
+    const _c = this.props.content
     this.state = {
-      title: '',
-      content: ''
+      title: _t,
+      content: _c
     }
     this.saveANote = this.saveANote.bind(this)
     this.changeTitle = this.changeTitle.bind(this)
     this.changeContent = this.changeContent.bind(this)
   }
 
-  saveANote (tit, ctt) {
+  saveANote (tit, ctt, id) {
     if (!tit.trim() || !ctt.trim()) return
-    this.props.addNewClick(tit, ctt)
+    this.props.addNewClick(tit, ctt, id)
   }
 
   changeTitle(e) {
@@ -36,8 +38,8 @@ class Layer extends React.Component {
     <div className="layer-wrap">
       <div className="layer-container">
         <div className="layer-left">
-          <h3>新增</h3>
-          <i title="保存" className="iconfont icon-save" onClick={() => this.saveANote(this.state.title, this.state.content)}>&#xe8c5;</i>
+          <h3>编辑</h3>
+          <i title="保存" className="iconfont icon-save" onClick={() => this.saveANote(this.state.title, this.state.content, this.props.id)}>&#xe8c5;</i>
           <i title="关闭" className="iconfont icon-close" onClick={this.props.closeLayerWrap}>&#xe86d;</i>
           <div className="input-box">
             <input type="text" placeholder="请输入标题" onChange={this.changeTitle} value={this.state.title}/>
@@ -56,4 +58,4 @@ class Layer extends React.Component {
   }
 }
 
-export default Layer
+export default Edit

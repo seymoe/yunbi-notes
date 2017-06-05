@@ -23,6 +23,27 @@
     color: #fff;
 }
 
+.head-nav{
+    overflow: hidden;
+    float: right;
+    margin-right: 5px;
+    list-style: none;
+}
+.head-nav li{
+    float: left;
+}
+.head-nav li a{
+    display: block;
+    padding: 0 10px;
+    height: inherit;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.head-nav li a:hover{
+    color: #ddd;
+}
+
 main {
     position: absolute;
     top: 60px;
@@ -64,9 +85,10 @@ main {
     line-height: 30px;
     color: #47423f;
     cursor: pointer;
+    border-radius: 100%;
 }
 .left-box>.add-new:hover{
-    background-color: #8e857e;
+    background-color: #24292e;
     color: #fff;
 }
 
@@ -213,6 +235,14 @@ a.delete-btn:hover,a.delete-btn:active{
 .layer-right{
   float: right;
 }
+.layer-preview{
+    position: absolute;
+    top: 46px;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    overflow-y: auto;
+}
 
 .layer-left>h3,.layer-right>h3{
   height: 35px;
@@ -230,6 +260,7 @@ a.delete-btn:hover,a.delete-btn:active{
     text-align: center;
     z-index: 101;
     cursor: pointer;
+    border-radius: 100%;
 }
 .icon-save{
     right: 50px;
@@ -238,7 +269,7 @@ a.delete-btn:hover,a.delete-btn:active{
     right: 10px;
 }
 .icon-save:hover,.icon-close:hover{
-    background-color: #8e857e;
+    background-color: #24292e;
     color: #fff;
 }
 
@@ -281,11 +312,6 @@ a.delete-btn:hover,a.delete-btn:active{
     .head-wrap{
         height: 50px;
         line-height: 50px;
-    }
-    .logo{
-        float: none;
-        text-align: center;
-        margin-left: 0;
     }
     main{
         top: 50px;
