@@ -5,7 +5,7 @@ const List = ({ listData, isShowLayer, showNoteDetail, changeStatusShow, onClick
   let showDetailCls = showNoteDetail ? 'toLeft' : 'toRight'
   return (
     <div className={"left-box " + showDetailCls}>
-      <h1><i className="iconfont">&#xe88f;</i>所有笔记</h1>
+      <h1>所有笔记</h1>
       <span title="新增" className="add-new" onClick={ () => addBtnClick(!isShowLayer) }><i className="iconfont">&#xe889;</i></span>
       <ul className="list-wrap">
         {listData.map((item) => {

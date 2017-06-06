@@ -7,8 +7,8 @@ const initialState = {
   idShowEditer: false
 }
 
-const note = (state={}, action) => {
-  switch(action.type) {
+const note = (state = {}, action) => {
+  switch (action.type) {
     case ADD_NOTE:
       return Object.assign({}, state, {
         id: action.id,
@@ -28,8 +28,8 @@ const note = (state={}, action) => {
   }
 }
 
-const notes = (state=[], action) => {
-  switch(action.type) {
+const notes = (state = [], action) => {
+  switch (action.type) {
     case ADD_NOTE:
       let isNew = true
       const _arr = state.map((item) => {
@@ -40,10 +40,10 @@ const notes = (state=[], action) => {
         }
         return item
       })
-      console.log('编辑之后的所有列表：'+_arr)
+      console.log('编辑之后的所有列表：' + _arr)
 
       if (isNew) {
-        return [...state, note({}, action)]        
+        return [...state, note({}, action)]
       } else {
         return _arr
       }
@@ -54,8 +54,8 @@ const notes = (state=[], action) => {
   }
 }
 
-const noteApp = (state=initialState, action) => {
-  switch(action.type) {
+const noteApp = (state = initialState, action) => {
+  switch (action.type) {
     case ADD_NOTE:
       return Object.assign({}, state, {
         notes: notes(state.notes, action)
@@ -75,7 +75,7 @@ const noteApp = (state=initialState, action) => {
         notes: _notes,
         cnote: state.notes.filter(item => item.id === action.id)[0]
       })
-      // 删除列表
+    // 删除列表
     case DELETE_NOTE:
       let newnotes = state.notes.filter(item => item.id !== action.id)
       return Object.assign({}, state, {

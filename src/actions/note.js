@@ -3,7 +3,7 @@ import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER, SHOW_EDITER } 
 let noteId = 0
 
 // 增加一篇笔记
-export const addNote = ( title, content, id) => {
+export const addNote = (title, content, id) => {
   if (id === undefined) {
     return {
       type: ADD_NOTE,

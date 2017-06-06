@@ -71,9 +71,9 @@ main {
     line-height: 30px;
     background-color: rgba(36, 41, 46, 0.1);
 }
-.left-box>h1 i{
+/*.left-box>h1 i{
     margin-right: 5px;
-}
+}*/
 
 .left-box>.add-new {
     position: absolute;
@@ -107,23 +107,28 @@ main {
 .list-wrap li {
     display: flex;
     justify-content: space-around;
-    height: 35px;
-    line-height: 35px;
+    height: 40px;
+    line-height: 40px;
     border-bottom: 1px solid #f1f1f1;
     cursor: pointer;
 }
 .list-wrap li .listtitle{
     flex: 1;
-    text-indent: 10px;
+    text-indent: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .list-wrap li i{
-    margin-right: 8px;
+    margin-right: 10px;
     display: block;
-    height: 35px;
-    line-height: 35px;
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
     float: right;
     font-size: 14px;
     color: #8e857e;
+    text-align: center;
 }
 
 .list-wrap li:hover {
@@ -333,8 +338,6 @@ a.delete-btn:hover,a.delete-btn:active{
     }
     .list-wrap li .listid{
         float: right;
-        height: 35px;
-        line-height: 35px;
         border-radius: 0;
         width: 50px;
         padding: 0;

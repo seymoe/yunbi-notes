@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   editClick: (isSE) => {
     dispatch(showEditer(isSE))
   },
-  deleteClick: (id) =>{
+  deleteClick: (id) => {
     dispatch(deleteNote(id))
   }
 })
