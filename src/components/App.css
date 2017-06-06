@@ -8,6 +8,7 @@
 }
 
 .head-wrap {
+    margin-bottom: 5px;
     width: 100%;
     height: 60px;
     line-height: 60px;
@@ -71,21 +72,22 @@ main {
     line-height: 30px;
     background-color: rgba(36, 41, 46, 0.1);
 }
-/*.left-box>h1 i{
-    margin-right: 5px;
-}*/
 
 .left-box>.add-new {
-    position: absolute;
+    position: fixed;
     display: block;
-    width: 30px;
-    right: 10px;
-    top: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    left: 10%;
+    margin-left: -25px;
+    bottom: 25px;
     text-align: center;
-    line-height: 30px;
-    color: #47423f;
+    color: #fff;
     cursor: pointer;
     border-radius: 100%;
+    background-color: rgba(36, 41, 46, 0.9);
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,.1);
 }
 .left-box>.add-new:hover{
     background-color: #24292e;
@@ -105,30 +107,32 @@ main {
 }
 
 .list-wrap li {
-    display: flex;
-    justify-content: space-around;
-    height: 40px;
-    line-height: 40px;
+    padding: 10px 15px;
     border-bottom: 1px solid #f1f1f1;
     cursor: pointer;
 }
-.list-wrap li .listtitle{
-    flex: 1;
-    text-indent: 15px;
+.list-wrap li .listbox{
+    width: 100%;
+}
+.list-wrap .listbox p{
+    color: #47423f;
+}
+.list-wrap .listbox span{
+    display: block;
+    height: 25px;
+    line-height: 30px;
+}
+.list-wrap .listbox span i{
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+.list-wrap .listtitle{
+    margin-bottom: 5px;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-.list-wrap li i{
-    margin-right: 10px;
-    display: block;
-    width: 30px;
-    height: 40px;
-    line-height: 40px;
-    float: right;
-    font-size: 14px;
-    color: #8e857e;
-    text-align: center;
 }
 
 .list-wrap li:hover {
@@ -307,10 +311,14 @@ a.delete-btn:hover,a.delete-btn:active{
   outline: none;
   font-size: 16px;
   line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
 }
 
 .layer-preview{
   line-height: 1.6;
+}
+.markdown-body>*:first-child{
+    text-align: center;
 }
 
 @media screen and (max-width: 480px) {
@@ -319,7 +327,7 @@ a.delete-btn:hover,a.delete-btn:active{
         line-height: 50px;
     }
     main{
-        top: 50px;
+        top: 55px;
     }
     .left-box{
         float: none;
@@ -328,21 +336,21 @@ a.delete-btn:hover,a.delete-btn:active{
         bottom: 0;
         width: 100%;
         z-index: 2;
-        transition: left .5s;        
+        transition: left .5s;
     }
     .left-box h1{
-        padding: 5px 0;
+        display: none;
     }
     .left-box>.add-new{
-        top: 5px;
+        left: 50%;
     }
-    .list-wrap li .listid{
-        float: right;
-        border-radius: 0;
-        width: 50px;
-        padding: 0;
-        margin: 0;
+
+    .list-wrap .listtitle{
+        margin-bottom: 5px;
+        width: 100%;
+        font-size: 18px;
     }
+
     .right-box{
         float: none;
         position: absolute;
