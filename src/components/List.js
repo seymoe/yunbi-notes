@@ -11,7 +11,7 @@ const List = ({ listData, isShowLayer, showNoteDetail, changeStatusShow, onClick
         {listData.map((item) => {
           const cls = (item.isActive) ? 'active' : ''
           return (
-            <ListItem key={item.id} id={item.id} title={item.title} cls={cls} showNoteDetail={showNoteDetail} changeStatusShow={changeStatusShow} clickPreview={onClick} />
+            <ListItem key={item.id} id={item.id} title={item.title} content={item.content.substring(0,40)} time={item.time} cls={cls} showNoteDetail={showNoteDetail} changeStatusShow={changeStatusShow} clickPreview={onClick} />
           )
         })
         }

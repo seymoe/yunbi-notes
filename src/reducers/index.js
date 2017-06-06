@@ -1,8 +1,12 @@
-import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER, SHOW_EDITER } from '../constants'
+import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SHOW_LAYER, SHOW_EDITER } from '../constants'
+import {setStorage, getStorage} from '../utils/storage'
 
+// 获取初始数据
+const localnotes = JSON.parse(getStorage('notes'))
+const localcnote = getStorage('cnote')
 const initialState = {
-  notes: [],
-  cnote: {},
+  notes: localnotes || [],
+  cnote: localcnote || {},
   isShowLayer: false,
   idShowEditer: false
 }
@@ -13,15 +17,8 @@ const note = (state = {}, action) => {
       return Object.assign({}, state, {
         id: action.id,
         title: action.title,
-        content: action.content
-      })
-    case SAVE_NOTE:
-      if (action.title === state.title || action.content === state.content) return state
-      return Object.assign({}, state, {
-        id: action.id,
-        title: action.title,
         content: action.content,
-        isActive: false
+        time: action.time
       })
     default:
       return state
@@ -37,18 +34,16 @@ const notes = (state = [], action) => {
           isNew = false
           item.title = action.title
           item.content = action.content
+          item.time = action.time
         }
         return item
       })
-      console.log('编辑之后的所有列表：' + _arr)
 
       if (isNew) {
         return [...state, note({}, action)]
       } else {
         return _arr
       }
-    case SAVE_NOTE:
-      return [...state, note({}, action)]
     default:
       return state
   }
@@ -57,12 +52,16 @@ const notes = (state = [], action) => {
 const noteApp = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
+      let _notes = notes(state.notes, action)
+      // 本地存储
+      setStorage('notes',JSON.stringify(_notes))
+
       return Object.assign({}, state, {
-        notes: notes(state.notes, action)
+        notes: _notes
       })
     case SHOW_NOTE:
       // 选中时增加active样式
-      const _notes = state.notes.map((item) => {
+      const notesArr = state.notes.map((item) => {
         if (item.id === action.id) {
           item.isActive = true
         } else {
@@ -70,21 +69,27 @@ const noteApp = (state = initialState, action) => {
         }
         return item
       })
+      let _cnote = state.notes.filter(item => item.id === action.id)[0]
+
+      // 本地存储
+      setStorage('notes',JSON.stringify(notesArr))
+      setStorage('cnote',_cnote)
 
       return Object.assign({}, state, {
-        notes: _notes,
-        cnote: state.notes.filter(item => item.id === action.id)[0]
+        notes: notesArr,
+        cnote: _cnote
       })
     // 删除列表
     case DELETE_NOTE:
       let newnotes = state.notes.filter(item => item.id !== action.id)
+
+      // 本地存储
+      setStorage('notes',JSON.stringify(newnotes))
+      setStorage('cnote',{})
+
       return Object.assign({}, state, {
         notes: newnotes,
         cnote: {}
-      })
-    case SAVE_NOTE:
-      return Object.assign({}, state, {
-        notes: notes(state.notes, action)
       })
     case SHOW_LAYER:
       return Object.assign({}, state, {

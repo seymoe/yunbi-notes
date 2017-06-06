@@ -1,22 +1,38 @@
-import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SAVE_NOTE, SHOW_LAYER, SHOW_EDITER } from '../constants'
+import moment from 'moment'
+import { getStorage } from '../utils/storage'
+import { ADD_NOTE, DELETE_NOTE, SHOW_NOTE, SHOW_LAYER, SHOW_EDITER } from '../constants'
 
-let noteId = 0
+let noteId
 
-// 增加一篇笔记
-export const addNote = (title, content, id) => {
-  if (id === undefined) {
+let notesArr = JSON.parse(getStorage('notes'))
+if (notesArr instanceof Array) {
+  let notesArr2 = notesArr.sort(function (a,b){
+    return a.id < b.id
+  })
+  noteId = notesArr2[0]['id']+1
+} else {
+  noteId = 0
+}
+
+console.log('id::',noteId)
+
+// 增加一篇笔记 或者 编辑之后保存
+export const addNote = (title, content, id, time) => {
+  if (id === undefined && time === undefined) {
     return {
       type: ADD_NOTE,
       id: noteId++,
       title,
-      content
+      content,
+      time: moment().format("YYYY-MM-DD HH:mm")
     }
   } else {
     return {
       type: ADD_NOTE,
       id,
       title,
-      content
+      content,
+      time: moment().format("YYYY-MM-DD HH:mm")
     }
   }
 }
@@ -34,16 +50,6 @@ export const showNote = (id) => {
   return {
     type: SHOW_NOTE,
     id
-  }
-}
-
-// 保存正在编辑的笔记
-export const saveNote = (id, title, content) => {
-  return {
-    type: SAVE_NOTE,
-    id,
-    title,
-    content
   }
 }
 
