@@ -40,10 +40,10 @@ class Layer extends React.Component {
           <i title="保存" className="iconfont icon-save" onClick={() => this.saveANote(this.state.title, this.state.content)}>&#xe8c5;</i>
           <i title="关闭" className="iconfont icon-close" onClick={this.props.closeLayerWrap}>&#xe86d;</i>
           <div className="input-box">
-            <input type="text" placeholder="请输入标题" onChange={this.changeTitle} value={this.state.title}/>
+            <input type="text" placeholder="这儿是标题" onChange={this.changeTitle} value={this.state.title}/>
           </div>
           <div className="textarea-box">
-            <textarea onChange={this.changeContent} value={this.state.content}></textarea>
+            <textarea onChange={this.changeContent} value={this.state.content} placeholder="试试markdown写法"></textarea>
           </div>
         </div>
         <div className="layer-right">

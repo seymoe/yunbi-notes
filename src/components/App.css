@@ -19,7 +19,7 @@
     float: left;
     margin-left: 15px;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 16px;
     color: #fff;
 }
 
@@ -69,7 +69,8 @@ main {
     font-weight: normal;
     height: 30px;
     line-height: 30px;
-    background-color: rgba(36, 41, 46, 0.1);
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,.15);
 }
 
 .left-box>.add-new {
@@ -87,7 +88,7 @@ main {
     border-radius: 100%;
     background-color: rgba(36, 41, 46, 0.5);
     box-shadow: 0px 0px 20px 5px rgba(0,0,0,.1);
-    z-index: 101;
+    z-index: 99;
 }
 .left-box>.add-new:hover{
     background-color: #24292e;
@@ -148,12 +149,18 @@ main {
     color: #47423f;
 }
 
+p.tips{
+    margin: 30px 0;
+    text-align: center;
+    color: #47423f;
+}
+
 /* 右边的预览区域样式*/
 .preview-top{
     height: 50px;
     line-height: 50px;
     text-align: right;
-    background-color: rgba(36, 41, 46, 0.1);
+    box-shadow: 0 1px 5px rgba(0,0,0,.15);
 }
 .preview-top>i{
     display: none;
@@ -178,7 +185,6 @@ a.modify-btn,a.delete-btn{
     line-height: 30px;
     margin: 5px;
     border-radius: 15px;
-    background-color: #ddd;
     cursor: pointer;
 }
 a.delete-btn{
@@ -346,10 +352,13 @@ a.delete-btn:hover,a.delete-btn:active{
     }
     .left-box>.add-new{
         left: 50%;
+        background-color: #24292e;
     }
 
     .list-wrap li{
-        padding: 5px 15px;
+        border-bottom: none;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 5px rgba(0,0,0,.15);        
     }
 
     .list-wrap .listbox p{
