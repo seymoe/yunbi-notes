@@ -12,3 +12,10 @@
 
 ### `npm run build`
 构建生产环境文件
+
+### 使用gh-pages进行预览
+若不存在gh-pages分支，则可以直接执行命令
+```
+git subtree push --prefix=build origin gh-pages
+```
+若存在，则可以在github上删掉此分支再执行上一条命令，其他的方式没踩过坑，这种方式暴力有效。
