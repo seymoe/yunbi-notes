@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Head = () => {
+const Head = ({isFullScreen}) => {
   return (
-    <header className="head-wrap">
+    <header className="head-wrap ">
       <h1 className="logo">芸笔</h1>
       <ul className="head-nav">
         <li><a href="http://www.txliang.com">Blog</a></li>

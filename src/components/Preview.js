@@ -4,10 +4,14 @@ const marked = require('marked')
 export default class Preview extends Component {
   render() {
     let showDetailCls = this.props.showNoteDetail ? 'toLeft' : 'toRight'
+    let isFullScreen = this.props.isFullScreen
     return (
       <div className={"right-box " + showDetailCls}>
         <div className="preview-top">
           <i onClick={() => this.props.changeStatusShow(!this.props.showNoteDetail)} className="iconfont">&#xe65f;</i>
+          <a title="全屏" className="full-btn iconfont" onClick={() => {
+            this.props.changeFullScreen(!isFullScreen)
+          }}>&#xe602;</a>
           <a title="编辑" className="modify-btn iconfont" onClick={() => {
             if (this.props.currentNote.id === undefined) return
             this.props.editClick(!this.props.isShowEditer)

@@ -51,6 +51,14 @@ main {
     left: 0;
     right: 0;
     overflow: hidden;
+    transition: top .5s;
+    
+}
+main.notop{
+    top: 0;
+}
+main.hastop{
+    top: 60px;
 }
 
 .left-box {
@@ -60,6 +68,7 @@ main {
     height: 100%;
     overflow-y: auto;
     background-color: #fafafa;
+    transition:width .5s;
 }
 
 .left-box>h1 {
@@ -103,6 +112,7 @@ main {
     overflow-y: auto;
     z-index: 100;
     background-color: #fff;
+    transition: width .5s;
 }
 
 .list-wrap {
@@ -123,7 +133,6 @@ main {
 }
 .list-wrap .listbox span{
     display: block;
-    height: 25px;
     line-height: 30px;
 }
 .list-wrap .listbox span i{
@@ -163,27 +172,26 @@ p.tips{
     box-shadow: 0 1px 5px rgba(0,0,0,.15);
 }
 .preview-top>i{
-    display: none;
     position: absolute;
-    left: 5px;
-    top: 5px;
+    left: 10px;
+    top: 10px;
     height: 30px;
     width: 30px;
     line-height: 30px;
     text-align: center;
     border-radius: 100%;
 }
-.preview-top>i:active{
+.preview-top>i:active,.preview-top>i:hover{
     background-color: #24292e;
     color: #fff;
 }
 
-a.modify-btn,a.delete-btn{
+a.modify-btn,a.delete-btn,.full-btn{
     display: inline-block;
     padding: 0 7px;
     height: 30px;
     line-height: 30px;
-    margin: 5px;
+    margin: 10px;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -191,7 +199,7 @@ a.delete-btn{
     margin-right: 20px;
 }
 
-a.modify-btn:hover,a.modify-btn:active{
+a.modify-btn:hover,a.modify-btn:active,a.full-btn:hover,a.full-btn:active{
     background-color: #24292e;
     color: #fff;
 }
@@ -330,12 +338,32 @@ a.delete-btn:hover,a.delete-btn:active{
     text-align: center;
 }
 
+/* 滑动动画 */
+.left-box.toLeft{
+    width: 0;
+}
+.left-box.toRight{
+    width: 20%;
+}
+.right-box.toLeft{
+    width: 100%;
+}
+.right-box.toRight{
+    width: 80%;
+}
+
 @media screen and (max-width: 480px) {
     .head-wrap{
         height: 50px;
         line-height: 50px;
     }
+    .head-show{
+        height: 50px !important;
+    }
     main{
+        top: 50px;
+    }
+    main.hastop{
         top: 50px;
     }
     .left-box{
@@ -388,6 +416,11 @@ a.delete-btn:hover,a.delete-btn:active{
     }
     .preview-top>i{
         display: block;
+        left: 5px;
+        top: 5px;
+    }
+    a.modify-btn,a.delete-btn,.full-btn{
+        margin: 5px;
     }
     a.delete-btn{
         margin-right: 5px;
@@ -414,15 +447,19 @@ a.delete-btn:hover,a.delete-btn:active{
     /* 滑动动画 */
     .left-box.toLeft{
         left: -100%;
+        width: 100%
     }
     .left-box.toRight{
         left: 0;
+        width: 100%;
     }
     .right-box.toLeft{
         left: 0;
         top: 0;
+        width: 100%;
     }
     .right-box.toRight{
         left: 100%;
+        width: 100%;
     }
 }

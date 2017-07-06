@@ -15,13 +15,21 @@ class Root extends React.Component {
     super(props)
     this.state = {
       showNoteDetail: false,
+      isFullScreen: false
     }
     this.changeStatusShow = this.changeStatusShow.bind(this)
+    this.changeFullScreen = this.changeFullScreen.bind(this)
   }
 
   changeStatusShow(status) {
     this.setState({
       showNoteDetail: status
+    })
+  }
+
+  changeFullScreen(status) {
+    this.setState({
+      isFullScreen: status
     })
   }
 
@@ -31,9 +39,12 @@ class Root extends React.Component {
     return (
       <div className='App'>
         <Head></Head>
-        <main>
+        <main className={this.state.isFullScreen ? 'notop' : 'hastop'}>
           <ContainerList showNoteDetail={this.state.showNoteDetail} changeStatusShow={this.changeStatusShow}></ContainerList>
-          <ContainerPreview showNoteDetail={this.state.showNoteDetail} changeStatusShow={this.changeStatusShow}></ContainerPreview>
+          <ContainerPreview showNoteDetail={this.state.showNoteDetail} 
+            changeStatusShow={this.changeStatusShow} 
+            changeFullScreen={this.changeFullScreen} 
+            isFullScreen={this.state.isFullScreen}></ContainerPreview>
         </main>
         {layer}
         {editer}
