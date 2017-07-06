@@ -51,6 +51,7 @@ main {
     left: 0;
     right: 0;
     overflow: hidden;
+    -webkit-transition: top .5s;
     transition: top .5s;
     
 }
@@ -68,6 +69,7 @@ main.hastop{
     height: 100%;
     overflow-y: auto;
     background-color: #fafafa;
+    -webkit-transition: width .5s;
     transition:width .5s;
 }
 
@@ -112,6 +114,7 @@ main.hastop{
     overflow-y: auto;
     z-index: 100;
     background-color: #fff;
+    -webkit-transition: width .5s;
     transition: width .5s;
 }
 
@@ -373,6 +376,7 @@ a.delete-btn:hover,a.delete-btn:active{
         bottom: 0;
         width: 100%;
         z-index: 2;
+        -webkit-transition: left .5s;
         transition: left .5s;
     }
     .left-box h1{
@@ -406,6 +410,7 @@ a.delete-btn:hover,a.delete-btn:active{
         width: 100%;
         left: 100%;
         top: -100%;
+        -webkit-transition: left .5s;
         transition: left .5s;
     }
 
